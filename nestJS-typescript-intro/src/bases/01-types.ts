@@ -1,9 +1,8 @@
-
-export let name: string = 'Fernando';
+export let name: string = "Fernando";
 export const age: number = 35;
 export const isValid: boolean = true;
 
-name = 'Melissa';
+name = "Melissa";
 // name = 123;
 // name = true;
 
@@ -12,10 +11,10 @@ multilinea
 que puede tener
 " dobles
 ' simple
-inyectar valores ${ name }
-expresiones ${ 1 + 1 }
-números: ${ age }
-booleanos: ${ isValid }
-`
+inyectar valores ${name}
+expresiones ${1 + 1}
+números: ${age}
+booleanos: ${isValid}
+`;
 
-console.log( templateString );
+console.log(templateString);
