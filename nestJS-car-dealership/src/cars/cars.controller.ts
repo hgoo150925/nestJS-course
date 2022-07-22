@@ -8,7 +8,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { patch } from 'superagent';
+
 import { CarsService } from './cars.service';
 
 @Controller('cars')
