@@ -74,4 +74,6 @@ export class CarsService {
     });
     return carDB;
   }
+
+  delete(id: string) {}
 }
