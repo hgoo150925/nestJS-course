@@ -11,6 +11,7 @@ import {
 
 import { CarsService } from './cars.service';
 import { CreateCarDto } from './dto/create-car.dto';
+import { UpdateCarDto } from './dto/update-car.dto';
 
 // Controller controlan rutas, son los encargados de escuchar la solicitud y emitir una respuesta
 @Controller('cars')
@@ -34,8 +35,11 @@ export class CarsController {
   }
 
   @Patch(':id')
-  updateCar(@Param('id') id: string, @Body() body: any) {
-    return body;
+  updateCar(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateCarDto: UpdateCarDto,
+  ) {
+    return updateCarDto;
   }
 
   @Delete(':id')
