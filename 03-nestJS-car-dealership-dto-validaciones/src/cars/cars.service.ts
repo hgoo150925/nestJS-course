@@ -52,5 +52,16 @@ export class CarsService {
   }
 
   // Actualiza un auto
-  update(id: string, updateCarDto: UpdateCarDto) {}
+  update(id: string, updateCarDto: UpdateCarDto) {
+    // validacion de que el id exista
+    let carDB = this.findOneById(id);
+
+    // generar un nuevo array en el car
+    this.cars = this.cars.map((car) => {
+      if (car.id === id) {
+        carDB = { ...carDB, ...updateCarDto, id };
+        return;
+      }
+    });
+  }
 }
