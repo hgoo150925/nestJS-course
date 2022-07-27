@@ -1,9 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateBrandDto } from './dto/create-brand.dto';
-import { UpdateBrandDto } from './dto/update-brand.dto';
+import { v4 as uuid } from 'uuid';
+
 import { Brand } from './entities/brand.entity';
 
-import { v4 as uuid } from 'uuid';
+import { CreateBrandDto } from './dto/create-brand.dto';
+import { UpdateBrandDto } from './dto/update-brand.dto';
 
 @Injectable()
 export class BrandsService {
@@ -16,7 +17,7 @@ export class BrandsService {
   ];
 
   create(createBrandDto: CreateBrandDto) {
-    const { name } = createBrandDto();
+    const { name } = createBrandDto;
 
     const brand: Brand = {
       id: uuid(),
@@ -25,6 +26,7 @@ export class BrandsService {
     };
 
     this.brands.push(brand);
+
     return brand;
   }
 
