@@ -1,19 +1,39 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
+import { Brand } from './entities/brand.entity';
+
+import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class BrandsService {
+  private brands: Brand[] = [
+    {
+      id: uuid(),
+      name: 'Kia',
+      createdAt: new Date().getTime(),
+    },
+  ];
+
   create(createBrandDto: CreateBrandDto) {
     return 'This action adds a new brand';
   }
 
   findAll() {
-    return `This action returns all brands`;
+    return this.brands;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} brand`;
+  findOne(id: string) {
+    // Busca si el id de la marca coincide con el id de busqueda
+    const brand = this.brands.find((brand) => brand.id === id);
+
+    // Si no existe la marca lanza un mensaje de error
+    if (!brand) {
+      throw new NotFoundException(`Brand with id: "${id}" not found`);
+    }
+
+    // Si la marca existe retorna la marca
+    return brand;
   }
 
   update(id: number, updateBrandDto: UpdateBrandDto) {
@@ -23,4 +43,7 @@ export class BrandsService {
   remove(id: number) {
     return `This action removes a #${id} brand`;
   }
+}
+function uuid(): string {
+  throw new Error('Function not implemented.');
 }
