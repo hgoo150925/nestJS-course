@@ -9,11 +9,11 @@ import { UpdateBrandDto } from './dto/update-brand.dto';
 @Injectable()
 export class BrandsService {
   private brands: Brand[] = [
-    {
-      id: uuid(),
-      name: 'Kia',
-      createdAt: new Date().getTime(),
-    },
+    // {
+    //   id: uuid(),
+    //   name: 'Kia',
+    //   createdAt: new Date().getTime(),
+    // },
   ];
 
   create(createBrandDto: CreateBrandDto) {
