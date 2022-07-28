@@ -1,11 +1,10 @@
-
-
-html, body {
-    padding: 20px;
-    background-color: grey;
+html,
+body {
+  padding: 20px;
+  background-color: #fefbf6;
 }
 
 h1 {
-    font-size: 20px;
-    color: white;
+  font-size: 20px;
+  color: #250341;
 }
