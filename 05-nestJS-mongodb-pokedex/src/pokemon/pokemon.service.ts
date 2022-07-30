@@ -81,7 +81,9 @@ export class PokemonService {
     return `This action removes a #${id} pokemon`;
   }
 
-  handleExceptions(error: any) {
+  // El handleExceptions nos ayudara a tener un listado completo de todos nuestros posibles errores
+  // Estas son Exceptions no controladas
+  private handleExceptions(error: any) {
     if (error.code === 11000) {
       throw new BadRequestException(
         `Pokemon exist in db ${JSON.stringify(error.keyValue)}`,
