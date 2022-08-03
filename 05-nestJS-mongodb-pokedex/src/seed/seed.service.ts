@@ -8,11 +8,11 @@ import { PokeResponse } from './interfaces/poke-response.interface';
 
 @Injectable()
 export class SeedService {
+  private readonly axios: AxiosInstance = axios;
+
   constructor(
     @InjectModel(Pokemon.name)
     private readonly pokemonModel: Model<Pokemon>,
-
-    private readonly axios: AxiosInstance = axios,
   ) {}
 
   async executeSeed() {
