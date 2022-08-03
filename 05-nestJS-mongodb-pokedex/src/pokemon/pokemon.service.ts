@@ -30,7 +30,7 @@ export class PokemonService {
   }
 
   findAll() {
-    return `This action returns all pokemon`;
+    return this.pokemonModel.find();
   }
 
   // Es async porque debemos hacer conexion a la DB
