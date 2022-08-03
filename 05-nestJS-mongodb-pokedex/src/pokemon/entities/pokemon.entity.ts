@@ -1,20 +1,18 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-// Representacion de la colecction (tabla) en la DB de MongoDB
-// Document le añade nombres, metodos, etc para trabajar de manera facil
-
 @Schema()
 export class Pokemon extends Document {
+  // id: string // Mongo me lo da
   @Prop({
     unique: true,
-    id: true,
+    index: true,
   })
   name: string;
 
   @Prop({
     unique: true,
-    id: true,
+    index: true,
   })
   no: number;
 }
